@@ -10,5 +10,6 @@ target 'miniGram' do
   pod 'ActionKit', '~> 2.5.2'
   pod 'Alamofire'
   pod 'Kingfisher', '~> 7.0'
+  pod 'KeychainSwift', '~> 20.0'
 
 end

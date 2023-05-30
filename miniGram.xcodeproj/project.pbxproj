@@ -21,6 +21,10 @@
 		5B8FD3E52A1D1A3400159F93 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FD3E32A1D1A3400159F93 /* PostCell.swift */; };
 		5B8FD3E62A1D1A3400159F93 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B8FD3E42A1D1A3400159F93 /* PostCell.xib */; };
 		5B8FD3E82A1D228A00159F93 /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FD3E72A1D228A00159F93 /* PostController.swift */; };
+		5B90D1B42A2650B800E67F3B /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B90D1B32A2650B800E67F3B /* LoginRequest.swift */; };
+		5B90D1B72A26526100E67F3B /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B90D1B52A26526100E67F3B /* LoginResponse.swift */; };
+		5B90D1B82A26526100E67F3B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B90D1B62A26526100E67F3B /* User.swift */; };
+		5B90D1BA2A26573100E67F3B /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B90D1B92A26573100E67F3B /* APIError.swift */; };
 		5BB57BF92A0AABEB004B278D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB57BF82A0AABEB004B278D /* ProfileViewModel.swift */; };
 		5BB57BFD2A0AAEE2004B278D /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB57BFC2A0AAEE2004B278D /* UIImageViewExtension.swift */; };
 		5BB57BFF2A0AB5A6004B278D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB57BFE2A0AB5A6004B278D /* UIViewExtension.swift */; };
@@ -56,6 +60,10 @@
 		5B8FD3E32A1D1A3400159F93 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		5B8FD3E42A1D1A3400159F93 /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
 		5B8FD3E72A1D228A00159F93 /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
+		5B90D1B32A2650B800E67F3B /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		5B90D1B52A26526100E67F3B /* LoginResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		5B90D1B62A26526100E67F3B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5B90D1B92A26573100E67F3B /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		5BB57BF82A0AABEB004B278D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		5BB57BFC2A0AAEE2004B278D /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		5BB57BFE2A0AB5A6004B278D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -178,10 +186,14 @@
 		5BF282FF29FD7E82009934C5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5B90D1B52A26526100E67F3B /* LoginResponse.swift */,
+				5B90D1B62A26526100E67F3B /* User.swift */,
 				5BF2830629FD8065009934C5 /* SplashModel.swift */,
 				5BC442A82A19285000BC679B /* FeedModel.swift */,
 				5BB9B1132A226C650045D195 /* Post.swift */,
 				5BB9B1152A226D470045D195 /* PostResponse.swift */,
+				5B90D1B32A2650B800E67F3B /* LoginRequest.swift */,
+				5B90D1B92A26573100E67F3B /* APIError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -346,6 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B90D1B82A26526100E67F3B /* User.swift in Sources */,
 				5BC442AB2A1928A800BC679B /* FeedViewModel.swift in Sources */,
 				5BB9B1162A226D470045D195 /* PostResponse.swift in Sources */,
 				5BB9B1142A226C650045D195 /* Post.swift in Sources */,
@@ -353,7 +366,9 @@
 				5BC442A92A19285000BC679B /* FeedModel.swift in Sources */,
 				5B2A9F2029E1D73100A172E6 /* ViewController.swift in Sources */,
 				5BC442A72A19251100BC679B /* FeedCell.swift in Sources */,
+				5B90D1BA2A26573100E67F3B /* APIError.swift in Sources */,
 				5B4173E62A08123800597704 /* HomeController.swift in Sources */,
+				5B90D1B72A26526100E67F3B /* LoginResponse.swift in Sources */,
 				5BF2830B29FD8855009934C5 /* SplashService.swift in Sources */,
 				5BF2830729FD8065009934C5 /* SplashModel.swift in Sources */,
 				5BB57BFD2A0AAEE2004B278D /* UIImageViewExtension.swift in Sources */,
@@ -361,6 +376,7 @@
 				5B4173EA2A08124B00597704 /* ProfileController.swift in Sources */,
 				5B8FD3E82A1D228A00159F93 /* PostController.swift in Sources */,
 				5BB57BF92A0AABEB004B278D /* ProfileViewModel.swift in Sources */,
+				5B90D1B42A2650B800E67F3B /* LoginRequest.swift in Sources */,
 				5BF2830929FD8189009934C5 /* SplashController.swift in Sources */,
 				5B5FC4262A01641100229274 /* LoginController.swift in Sources */,
 				5B4173E82A08124100597704 /* SearchController.swift in Sources */,
