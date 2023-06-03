@@ -25,10 +25,12 @@ struct AuthorData: Decodable {
 struct Author: Decodable {
     var id: Int?
     var attributes: AuthorAttribute?
+    
 }
 
 struct AuthorAttribute: Decodable {
     var username: String?
+    var profilePhoto: ImageContent?
 }
 
 struct PostImageAttribute: Decodable {

@@ -10,7 +10,7 @@ import UIKit
 
 struct FeedModel {
     let username: String
-    let userPhoto: UIImage
+    let userPhotoUrl: String
     let contentImageUrl: String
     let contentText: String
 }

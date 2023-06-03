@@ -27,6 +27,27 @@ class HomeController: UIViewController {
         self.homeTableView.rowHeight = UITableView.automaticDimension
         
         self.getPostsFromAPI()
+        
+        /*
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 36))
+        button.titleLabel?.textColor = UIColor.red
+       // button.tintColor = UIColor(named: "appAccent")
+        button.setTitle("Create Post", for: .normal)
+         */
+       // let createButton = UIBarButtonItem(customView: button)
+        let createButton = UIBarButtonItem(title: "Create Post") {
+            if let controller = self.storyboard?.instantiateViewController(withIdentifier: MinigramApp.createPostController) as? CreatePostController {
+                self.navigationController?.pushViewController(controller, animated: true)
+            }
+        }
+        self.navigationItem.rightBarButtonItem = createButton
+        
+        /*
+        button.addControlEvent(.touchUpInside) {
+            if let controller = self.storyboard?.instantiateViewController(withIdentifier: MinigramApp.createPostController) as? CreatePostController {
+                self.navigationController?.pushViewController(controller, animated: true)
+            }
+        }*/
     }
 
     // what happens when a row is clicked
@@ -63,7 +84,10 @@ extension HomeController: UITableViewDataSource {
         }
         
         let feedData = self.feedViewModel.feedDataAtRow(row: indexPath.row)
-        feedCell.userPhotoImageView.image = feedData.userPhoto
+        if let url = URL(string: feedData.userPhotoUrl) {
+            print("authorPhotoUrl = \(url)")
+            feedCell.userPhotoImageView.kf.setImage(with: url)
+        }
         feedCell.userNameLabel.text = feedData.username
         // feedCell.contentImageView.image = feedData.contentImage
         if let url = URL(string: feedData.contentImageUrl) {
@@ -86,8 +110,8 @@ extension HomeController: UITableViewDelegate {
         let cancelButton = UIAlertAction(title: "Okay", style: .default)
         alertController.addAction(cancelButton)
         self.present(alertController, animated: true)
-        
     }
+    
 }
 
 extension HomeController {
@@ -97,7 +121,7 @@ extension HomeController {
       /*  AF.request(MinigramApp.apiBaseUrl + "/api/posts?populate=*").response { response in
             debugPrint(response)
         } */
-        let url = MinigramApp.apiBaseUrl + "/api/posts?populate=*"
+        let url = MinigramApp.apiBaseUrl + "/api/posts?populate=author,author.profilePhoto,imageContent"
         let parameters: [String: Any] = [:]
         let headers: HTTPHeaders = [
             "Authorization": MinigramApp.authorizationHeader
@@ -132,7 +156,12 @@ extension HomeController {
                             contentUrl = MinigramApp.apiBaseUrl + url
                         }
                         
-                        let postData = FeedModel(username: authorUsername, userPhoto: UIImage(), contentImageUrl: contentUrl, contentText: content)
+                        var authorPhotoUrl = ""
+                        if let url = item.attributes?.author?.data?.attributes?.profilePhoto?.data?.attributes?.url {
+                            authorPhotoUrl = MinigramApp.apiBaseUrl + url
+                        }
+                        
+                        let postData = FeedModel(username: authorUsername, userPhotoUrl: authorPhotoUrl, contentImageUrl: contentUrl, contentText: content)
                         self.feedViewModel.dataSet.append(postData)
                     }
                 }
@@ -144,4 +173,6 @@ extension HomeController {
     // Assignment Class 11
     // Refactor this code and take it to View Model class, do all the processing in the view model class
     // See SwiftyJSON for alternate JSON Parsing
+    
+    // Assignment Class 13 - Implement Load more
 }

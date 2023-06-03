@@ -4,6 +4,7 @@ PODS:
   - IQKeyboardManager (6.5.11)
   - KeychainSwift (20.0.0)
   - Kingfisher (7.7.0)
+  - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - ActionKit (~> 2.5.2)
@@ -11,6 +12,7 @@ DEPENDENCIES:
   - IQKeyboardManager
   - KeychainSwift (~> 20.0)
   - Kingfisher (~> 7.0)
+  - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
@@ -19,6 +21,7 @@ SPEC REPOS:
     - IQKeyboardManager
     - KeychainSwift
     - Kingfisher
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
   ActionKit: c1b6427fd36a0fe2223555679bcc5dea437af5b3
@@ -26,7 +29,8 @@ SPEC CHECKSUMS:
   IQKeyboardManager: ef43ce1ba1e5aaf4adf222c0a46f39761f246879
   KeychainSwift: 0ce6a4d13f7228054d1a71bb1b500448fb2ab837
   Kingfisher: f043ac666dfc96c1f37604f93effb45a7ee3a3e1
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 7520bc06accb33e593fa1a358c7bee7336ce3a03
+PODFILE CHECKSUM: 2802c8a976a64c736a318baa369f79fa553ffbb7
 
-COCOAPODS: 1.12.0
+COCOAPODS: 1.12.1

@@ -39,6 +39,7 @@
 		5BF2830929FD8189009934C5 /* SplashController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF2830829FD8189009934C5 /* SplashController.swift */; };
 		5BF2830B29FD8855009934C5 /* SplashService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF2830A29FD8855009934C5 /* SplashService.swift */; };
 		5BF2830D29FD8976009934C5 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF2830C29FD8976009934C5 /* SplashViewModel.swift */; };
+		5BF708042A2B9FA200B92E02 /* CreatePostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF708032A2B9FA200B92E02 /* CreatePostController.swift */; };
 		95BE53390BCEEC8272FB3E44 /* Pods_miniGram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6423FD48F14E10171DB4DF17 /* Pods_miniGram.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		5BF2830829FD8189009934C5 /* SplashController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashController.swift; sourceTree = "<group>"; };
 		5BF2830A29FD8855009934C5 /* SplashService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashService.swift; sourceTree = "<group>"; };
 		5BF2830C29FD8976009934C5 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		5BF708032A2B9FA200B92E02 /* CreatePostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostController.swift; sourceTree = "<group>"; };
 		5F7A39EF732D3AF32D82A153 /* Pods-miniGram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-miniGram.debug.xcconfig"; path = "Target Support Files/Pods-miniGram/Pods-miniGram.debug.xcconfig"; sourceTree = "<group>"; };
 		6423FD48F14E10171DB4DF17 /* Pods_miniGram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_miniGram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -179,6 +181,7 @@
 				5B4173E72A08124100597704 /* SearchController.swift */,
 				5B4173E92A08124B00597704 /* ProfileController.swift */,
 				5B8FD3E72A1D228A00159F93 /* PostController.swift */,
+				5BF708032A2B9FA200B92E02 /* CreatePostController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				5BF2830729FD8065009934C5 /* SplashModel.swift in Sources */,
 				5BB57BFD2A0AAEE2004B278D /* UIImageViewExtension.swift in Sources */,
 				5BB57BFF2A0AB5A6004B278D /* UIViewExtension.swift in Sources */,
+				5BF708042A2B9FA200B92E02 /* CreatePostController.swift in Sources */,
 				5B4173EA2A08124B00597704 /* ProfileController.swift in Sources */,
 				5B8FD3E82A1D228A00159F93 /* PostController.swift in Sources */,
 				5BB57BF92A0AABEB004B278D /* ProfileViewModel.swift in Sources */,
