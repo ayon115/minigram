@@ -7,6 +7,8 @@
 
 import UIKit
 import ActionKit
+import CoreLocation
+import MapKit
 
 class CreatePostController: UIViewController {
 
@@ -14,12 +16,49 @@ class CreatePostController: UIViewController {
     @IBOutlet weak var contentImage: UIImageView!
     @IBOutlet weak var contentButton: UIButton!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var mapView: MKMapView!
+    
+    var locationManager: CLLocationManager?
+    var lastKnownLocation: CLLocationCoordinate2D?
     
     var imagePickerController = UIImagePickerController()
+    
+    let defualtLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(23.7649, 90.3899);
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setup()
+        
+        self.locationManager = CLLocationManager()
+        self.locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager?.delegate = self
+        self.locationManager?.requestWhenInUseAuthorization()
+        self.locationManager?.startUpdatingLocation()
+        
+        self.mapView.delegate = self
+        self.mapView.showsUserLocation = true
+        self.centerMapToLocation(location: self.defualtLocation)
+        
+        let dhaka = Place(coordinate: CLLocationCoordinate2DMake(23.7739, 90.3989), title: "Dhaka")
+        let narayanganj = Place(coordinate: CLLocationCoordinate2DMake(23.6200, 90.5000), title: "Narayanganj")
+        let gazipur = Place(coordinate: CLLocationCoordinate2DMake(23.9889, 90.3750), title: "Gazipur")
+        
+        self.mapView.addAnnotations([dhaka, narayanganj, gazipur])
+        
+        
+       // let camera = MKMapCamera(lookingAtCenter: bdLocation, fromDistance: CLLocationDistance(), pitch: 0.0, heading: 180.0)
+       // self.mapView.setCamera(camera, animated: true)
+    }
+    
+    func centerMapToLocation (location: CLLocationCoordinate2D) {
+        
+        let region = MKCoordinateRegion(center: location, latitudinalMeters: 30000, longitudinalMeters: 30000)
+        self.mapView.setRegion(region, animated: true)
+    }
+    
+    
+    func setup () {
         self.contentTextView.text = ""
         self.contentButton.addControlEvent(.touchUpInside) {
             
@@ -54,6 +93,10 @@ class CreatePostController: UIViewController {
             controller.addAction(cancelButton)
             self.present(controller, animated: true)
         }
+        
+        self.submitButton.addControlEvent(.touchUpInside) {
+            
+        }
     }
     
     @IBAction func takePhoto(_ sender: UIBarButtonItem) {
@@ -87,4 +130,82 @@ extension CreatePostController: UIImagePickerControllerDelegate, UINavigationCon
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
     }
+}
+
+extension CreatePostController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error.localizedDescription)
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        if manager.authorizationStatus != .authorizedWhenInUse {
+            self.locationManager?.requestWhenInUseAuthorization()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+       // print(locations)
+    }
+}
+
+extension CreatePostController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        print("regionDidChangeAnimated")
+    }
+    
+    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+        print("mapViewDidFinishLoadingMap")
+    }
+    
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        print("didUpdate userLocation")
+    }
+    
+    func mapView(_ mapView: MKMapView, didFailToLocateUserWithError error: Error) {
+        print("didFailToLocateUserWithError")
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        guard let place = annotation as? Place else {
+            return nil
+        }
+        
+        print(place)
+        
+        var annotationView: MKAnnotationView?
+        if let view = mapView.dequeueReusableAnnotationView(withIdentifier: "place") as? MKMarkerAnnotationView {
+            annotationView = view
+            annotationView?.annotation = annotation
+        } else {
+            annotationView = MKMarkerAnnotationView(annotation: place, reuseIdentifier: "place")
+        }
+        annotationView?.canShowCallout = true
+        annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        
+        return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+        let place = view.annotation as? Place
+        MinigramApp.showAlert(from: self, title: "Callout Tapped", message: "You are at " + (place?.title ?? ""))
+        
+    }
+}
+
+class Place: NSObject, MKAnnotation {
+    
+    let coordinate: CLLocationCoordinate2D
+    let title: String?
+    
+    init(coordinate: CLLocationCoordinate2D, title: String) {
+        self.coordinate = coordinate
+        self.title = title
+    
+        super.init()
+    }
+    
 }

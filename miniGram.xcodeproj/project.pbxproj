@@ -538,6 +538,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = miniGram/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "MiniGram wants to access your camera to take photos for the platform.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "MiniGram wants to access your location.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "MiniGram wants to access your photo library to take photos for the platform.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -567,6 +570,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = miniGram/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "MiniGram wants to access your camera to take photos for the platform.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "MiniGram wants to access your location.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "MiniGram wants to access your photo library to take photos for the platform.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
