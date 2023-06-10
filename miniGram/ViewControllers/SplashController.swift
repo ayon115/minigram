@@ -35,6 +35,7 @@ class SplashController: UIViewController {
     func goToLoginScreen() {
         print("go to login screen")
         
+        /*
         if let loginNavigationController = self.storyboard?.instantiateViewController(withIdentifier: MinigramApp.loginNavigationController) as? UINavigationController {
            // self.present(loginNavigationController, animated: true)
             
@@ -45,10 +46,18 @@ class SplashController: UIViewController {
             }
         }
         
-        /*
         if let loginController = self.storyboard?.instantiateViewController(withIdentifier: MinigramApp.loginController) as? LoginController {
             self.present(loginController, animated: true)
         }
          */
+         
+         if let sliderController = self.storyboard?.instantiateViewController(withIdentifier: MinigramApp.sliderController) as? UIViewController {
+             
+             if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                 if let sceneDelegate = windowScene.delegate as? SceneDelegate {
+                     sceneDelegate.window?.rootViewController = sliderController
+                 }
+             }
+         }
     }
 }

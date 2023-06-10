@@ -18,6 +18,8 @@
 		5B4173EA2A08124B00597704 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4173E92A08124B00597704 /* ProfileController.swift */; };
 		5B5FC4262A01641100229274 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5FC4252A01641100229274 /* LoginController.swift */; };
 		5B5FC4282A0170FB00229274 /* ForgotController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5FC4272A0170FB00229274 /* ForgotController.swift */; };
+		5B88E1F52A34DF9800DC92B2 /* SliderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B88E1F42A34DF9800DC92B2 /* SliderController.swift */; };
+		5B88E1F72A34E37900DC92B2 /* PageContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B88E1F62A34E37900DC92B2 /* PageContentController.swift */; };
 		5B8FD3E52A1D1A3400159F93 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FD3E32A1D1A3400159F93 /* PostCell.swift */; };
 		5B8FD3E62A1D1A3400159F93 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B8FD3E42A1D1A3400159F93 /* PostCell.xib */; };
 		5B8FD3E82A1D228A00159F93 /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FD3E72A1D228A00159F93 /* PostController.swift */; };
@@ -58,6 +60,8 @@
 		5B4173E92A08124B00597704 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		5B5FC4252A01641100229274 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		5B5FC4272A0170FB00229274 /* ForgotController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotController.swift; sourceTree = "<group>"; };
+		5B88E1F42A34DF9800DC92B2 /* SliderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderController.swift; sourceTree = "<group>"; };
+		5B88E1F62A34E37900DC92B2 /* PageContentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContentController.swift; sourceTree = "<group>"; };
 		5B8FD3E32A1D1A3400159F93 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		5B8FD3E42A1D1A3400159F93 /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
 		5B8FD3E72A1D228A00159F93 /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
@@ -182,6 +186,8 @@
 				5B4173E92A08124B00597704 /* ProfileController.swift */,
 				5B8FD3E72A1D228A00159F93 /* PostController.swift */,
 				5BF708032A2B9FA200B92E02 /* CreatePostController.swift */,
+				5B88E1F42A34DF9800DC92B2 /* SliderController.swift */,
+				5B88E1F62A34E37900DC92B2 /* PageContentController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -365,6 +371,7 @@
 				5BC442AB2A1928A800BC679B /* FeedViewModel.swift in Sources */,
 				5BB9B1162A226D470045D195 /* PostResponse.swift in Sources */,
 				5BB9B1142A226C650045D195 /* Post.swift in Sources */,
+				5B88E1F52A34DF9800DC92B2 /* SliderController.swift in Sources */,
 				5B5FC4282A0170FB00229274 /* ForgotController.swift in Sources */,
 				5BC442A92A19285000BC679B /* FeedModel.swift in Sources */,
 				5B2A9F2029E1D73100A172E6 /* ViewController.swift in Sources */,
@@ -386,6 +393,7 @@
 				5B4173E82A08124100597704 /* SearchController.swift in Sources */,
 				5BF2830529FD7F41009934C5 /* MinigramApp.swift in Sources */,
 				5B2A9F1C29E1D73100A172E6 /* AppDelegate.swift in Sources */,
+				5B88E1F72A34E37900DC92B2 /* PageContentController.swift in Sources */,
 				5B2A9F1E29E1D73100A172E6 /* SceneDelegate.swift in Sources */,
 				5BF2830D29FD8976009934C5 /* SplashViewModel.swift in Sources */,
 				5B8FD3E52A1D1A3400159F93 /* PostCell.swift in Sources */,
