@@ -9,6 +9,7 @@ import UIKit
 import ActionKit
 import CoreLocation
 import MapKit
+import Alamofire
 
 class CreatePostController: UIViewController {
 
@@ -17,6 +18,9 @@ class CreatePostController: UIViewController {
     @IBOutlet weak var contentButton: UIButton!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
+    
+    var navBarTitle: String?
+    var createPostDelegate: CreatePostProtocol?
     
     var locationManager: CLLocationManager?
     var lastKnownLocation: CLLocationCoordinate2D?
@@ -27,6 +31,8 @@ class CreatePostController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = self.navBarTitle
         
         self.setup()
         
@@ -50,6 +56,9 @@ class CreatePostController: UIViewController {
        // let camera = MKMapCamera(lookingAtCenter: bdLocation, fromDistance: CLLocationDistance(), pitch: 0.0, heading: 180.0)
        // self.mapView.setCamera(camera, animated: true)
     }
+    
+    
+   
     
     func centerMapToLocation (location: CLLocationCoordinate2D) {
         
@@ -95,13 +104,89 @@ class CreatePostController: UIViewController {
         }
         
         self.submitButton.addControlEvent(.touchUpInside) {
-            
+            self.createPost()
         }
     }
     
     @IBAction func takePhoto(_ sender: UIBarButtonItem) {
         imagePickerController.takePicture()
     }
+    
+    func createPost () {
+        let url = MinigramApp.apiBaseUrl + "/api/posts"
+        
+        guard let content = self.contentTextView.text, content.count > 0 else {
+            MinigramApp.showAlert(from: self, title: "Content too short", message: "Please write your content for the post.")
+            return
+        }
+        
+        let postData = PostData()
+        postData.content = content
+        let defaults = UserDefaults.standard
+        let userId = defaults.integer(forKey: "userId") ?? 0
+        let jwt = defaults.string(forKey: "jwt") ?? ""
+        if userId == 0 {
+            return
+        }
+        postData.author = userId
+        let postRequest = PostRequest()
+        postRequest.data = postData
+        
+        let httpHeaders: HTTPHeaders = [
+            "Authorization": MinigramApp.authorizationHeader
+        ]
+        
+        
+        
+        AF.request(url, method: .post, parameters: postRequest, encoder: JSONParameterEncoder.default, headers: httpHeaders, interceptor: nil, requestModifier: nil).responseDecodable(of: CreatePostResponse.self) { response in
+            debugPrint(response)
+            
+            switch (response.result) {
+                case .success:
+                if let statusCode = response.response?.statusCode {
+                        if statusCode == 200 || statusCode == 201 {
+                            self.goBackToHome()
+                        } else {
+                            
+                        }
+                    }
+                    break
+                case let .failure(error):
+                    MinigramApp.showAlert(from: self, title: "Create Post failed", message: error.localizedDescription)
+                    break
+            }
+        }
+        
+       
+        
+    }
+    
+    func goBackToHome () {
+        
+        NotificationCenter.default.post(name: .newPostCreated, object: nil)
+       // self.createPostDelegate?.reloadAllPosts()
+        
+        // navigate to previous view controller
+       // self.navigationController?.popViewController(animated: true)
+        
+        // navigate to root view conroller
+        // self.navigationController?.popToRootViewController(animated: true)
+        
+        // navigate to specific view conroller
+        if let controllers: [UIViewController] = self.navigationController?.viewControllers {
+            var targetController: HomeController?
+            for controller in controllers {
+                if controller is HomeController {
+                    targetController = controller as! HomeController
+                    break
+                }
+            }
+            if let target = targetController {
+                self.navigationController?.popToViewController(target, animated: true)
+            }
+        }
+    }
+    
 }
 
 extension CreatePostController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -124,6 +209,8 @@ extension CreatePostController: UIImagePickerControllerDelegate, UINavigationCon
          */
 
         dismiss(animated: true)
+    
+        
     }
 
     func getDocumentsDirectory() -> URL {

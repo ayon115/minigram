@@ -113,6 +113,7 @@ class LoginController: UIViewController {
                 case .success:
                 if let statusCode = response.response?.statusCode {
                         if statusCode == 200 {
+                            self.saveAuthInfo(response: response.value)
                             self.makeTransitionToHome()
                         } else {
                             if let errorMessage = response.value?.error?.message {
@@ -132,7 +133,19 @@ class LoginController: UIViewController {
         }
     }
     
+    func saveAuthInfo (response: LoginResponse?) {
+        if let loginResponse = response {
+            if let userId = loginResponse.user?.id, let jwt = loginResponse.jwt {
+                let defaults = UserDefaults.standard
+                defaults.setValue(userId, forKey: "userId")
+                defaults.setValue(jwt, forKey: "jwt")
+                defaults.synchronize()
+            }
+        }
+    }
+    
     func makeTransitionToHome () {
+        
         if let homeTabBarController = self.storyboard?.instantiateViewController(withIdentifier: MinigramApp.homeTabBarController) as? UITabBarController {
             
             if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {

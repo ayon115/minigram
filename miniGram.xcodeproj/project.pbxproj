@@ -32,6 +32,10 @@
 		5BB57BFF2A0AB5A6004B278D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB57BFE2A0AB5A6004B278D /* UIViewExtension.swift */; };
 		5BB9B1142A226C650045D195 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9B1132A226C650045D195 /* Post.swift */; };
 		5BB9B1162A226D470045D195 /* PostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9B1152A226D470045D195 /* PostResponse.swift */; };
+		5BC0120A2A38C50700786B34 /* PostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC012092A38C50700786B34 /* PostRequest.swift */; };
+		5BC0120C2A38CE2500786B34 /* CreatePostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC0120B2A38CE2500786B34 /* CreatePostResponse.swift */; };
+		5BC0120F2A38D38200786B34 /* CreatePostProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC0120E2A38D38200786B34 /* CreatePostProtocol.swift */; };
+		5BC012112A38D86300786B34 /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC012102A38D86300786B34 /* NotificationExtension.swift */; };
 		5BC442A52A1924DF00BC679B /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC442A42A1924DF00BC679B /* FeedCell.xib */; };
 		5BC442A72A19251100BC679B /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC442A62A19251100BC679B /* FeedCell.swift */; };
 		5BC442A92A19285000BC679B /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC442A82A19285000BC679B /* FeedModel.swift */; };
@@ -74,6 +78,10 @@
 		5BB57BFE2A0AB5A6004B278D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		5BB9B1132A226C650045D195 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		5BB9B1152A226D470045D195 /* PostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponse.swift; sourceTree = "<group>"; };
+		5BC012092A38C50700786B34 /* PostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRequest.swift; sourceTree = "<group>"; };
+		5BC0120B2A38CE2500786B34 /* CreatePostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostResponse.swift; sourceTree = "<group>"; };
+		5BC0120E2A38D38200786B34 /* CreatePostProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostProtocol.swift; sourceTree = "<group>"; };
+		5BC012102A38D86300786B34 /* NotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtension.swift; sourceTree = "<group>"; };
 		5BC442A42A1924DF00BC679B /* FeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
 		5BC442A62A19251100BC679B /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		5BC442A82A19285000BC679B /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
@@ -130,6 +138,7 @@
 		5B2A9F1A29E1D73100A172E6 /* miniGram */ = {
 			isa = PBXGroup;
 			children = (
+				5BC0120D2A38D36D00786B34 /* Protocols */,
 				5BC442A32A1924B600BC679B /* CustomCells */,
 				5BB57BFA2A0AAEA1004B278D /* Extensions */,
 				5BF2830329FD7F1D009934C5 /* Utilities */,
@@ -150,8 +159,17 @@
 			children = (
 				5BB57BFC2A0AAEE2004B278D /* UIImageViewExtension.swift */,
 				5BB57BFE2A0AB5A6004B278D /* UIViewExtension.swift */,
+				5BC012102A38D86300786B34 /* NotificationExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5BC0120D2A38D36D00786B34 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5BC0120E2A38D38200786B34 /* CreatePostProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		5BC442A32A1924B600BC679B /* CustomCells */ = {
@@ -203,6 +221,8 @@
 				5BB9B1152A226D470045D195 /* PostResponse.swift */,
 				5B90D1B32A2650B800E67F3B /* LoginRequest.swift */,
 				5B90D1B92A26573100E67F3B /* APIError.swift */,
+				5BC012092A38C50700786B34 /* PostRequest.swift */,
+				5BC0120B2A38CE2500786B34 /* CreatePostResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -373,14 +393,17 @@
 				5BB9B1142A226C650045D195 /* Post.swift in Sources */,
 				5B88E1F52A34DF9800DC92B2 /* SliderController.swift in Sources */,
 				5B5FC4282A0170FB00229274 /* ForgotController.swift in Sources */,
+				5BC012112A38D86300786B34 /* NotificationExtension.swift in Sources */,
 				5BC442A92A19285000BC679B /* FeedModel.swift in Sources */,
 				5B2A9F2029E1D73100A172E6 /* ViewController.swift in Sources */,
 				5BC442A72A19251100BC679B /* FeedCell.swift in Sources */,
+				5BC0120A2A38C50700786B34 /* PostRequest.swift in Sources */,
 				5B90D1BA2A26573100E67F3B /* APIError.swift in Sources */,
 				5B4173E62A08123800597704 /* HomeController.swift in Sources */,
 				5B90D1B72A26526100E67F3B /* LoginResponse.swift in Sources */,
 				5BF2830B29FD8855009934C5 /* SplashService.swift in Sources */,
 				5BF2830729FD8065009934C5 /* SplashModel.swift in Sources */,
+				5BC0120F2A38D38200786B34 /* CreatePostProtocol.swift in Sources */,
 				5BB57BFD2A0AAEE2004B278D /* UIImageViewExtension.swift in Sources */,
 				5BB57BFF2A0AB5A6004B278D /* UIViewExtension.swift in Sources */,
 				5BF708042A2B9FA200B92E02 /* CreatePostController.swift in Sources */,
@@ -394,6 +417,7 @@
 				5BF2830529FD7F41009934C5 /* MinigramApp.swift in Sources */,
 				5B2A9F1C29E1D73100A172E6 /* AppDelegate.swift in Sources */,
 				5B88E1F72A34E37900DC92B2 /* PageContentController.swift in Sources */,
+				5BC0120C2A38CE2500786B34 /* CreatePostResponse.swift in Sources */,
 				5B2A9F1E29E1D73100A172E6 /* SceneDelegate.swift in Sources */,
 				5BF2830D29FD8976009934C5 /* SplashViewModel.swift in Sources */,
 				5B8FD3E52A1D1A3400159F93 /* PostCell.swift in Sources */,

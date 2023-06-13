@@ -11,8 +11,6 @@ import Kingfisher
 
 class HomeController: UIViewController {
     
-    
-
     @IBOutlet weak var homeTableView: UITableView!
    
     let feedViewModel = FeedViewModel()
@@ -26,8 +24,6 @@ class HomeController: UIViewController {
         self.homeTableView.estimatedRowHeight = 350.0
         self.homeTableView.rowHeight = UITableView.automaticDimension
         
-        self.getPostsFromAPI()
-        
         /*
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 36))
         button.titleLabel?.textColor = UIColor.red
@@ -37,6 +33,8 @@ class HomeController: UIViewController {
        // let createButton = UIBarButtonItem(customView: button)
         let createButton = UIBarButtonItem(title: "Create Post") {
             if let controller = self.storyboard?.instantiateViewController(withIdentifier: MinigramApp.createPostController) as? CreatePostController {
+                controller.navBarTitle = "Create New Post"
+                controller.createPostDelegate = self
                 self.navigationController?.pushViewController(controller, animated: true)
             }
         }
@@ -48,9 +46,35 @@ class HomeController: UIViewController {
                 self.navigationController?.pushViewController(controller, animated: true)
             }
         }*/
+        self.getPostsFromAPI()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(newPostCreated), name: .newPostCreated, object: nil)
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("HomeController viewWillDisappear")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("HomeController viewWillAppear")
+    }
+    
+    @objc func newPostCreated () {
+        print("HomeController newPostCreated Notification Received.")
+        self.getPostsFromAPI()
+    }
+    
 
     // what happens when a row is clicked
+}
+
+extension HomeController: CreatePostProtocol {
+    func reloadAllPosts() {
+        print("HomeController reloadAllPosts")
+        self.getPostsFromAPI()
+    }
 }
 
 extension HomeController: UITableViewDataSource {
@@ -92,6 +116,8 @@ extension HomeController: UITableViewDataSource {
         // feedCell.contentImageView.image = feedData.contentImage
         if let url = URL(string: feedData.contentImageUrl) {
             feedCell.contentImageView.kf.setImage(with: url)
+        } else {
+            feedCell.contentImageView.image = UIImage(named: "placeholder")!
         }
         feedCell.contentTextLabel.text = feedData.contentText
         

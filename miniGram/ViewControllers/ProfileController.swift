@@ -38,6 +38,13 @@ class ProfileController: UIViewController {
         let postNib = UINib(nibName: PostCell.reuseIdentifier, bundle: nil)
         self.mCollectionView.register(postNib, forCellWithReuseIdentifier: PostCell.reuseIdentifier)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(newPostCreated), name: .newPostCreated, object: nil)
+        
+        
+    }
+    
+    @objc func newPostCreated () {
+        print("ProfileController newPostCreated Notification Received.")
     }
     
     // task - write a function that changes selected segment title color to white
