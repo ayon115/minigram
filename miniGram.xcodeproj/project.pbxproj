@@ -27,6 +27,8 @@
 		5B90D1B72A26526100E67F3B /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B90D1B52A26526100E67F3B /* LoginResponse.swift */; };
 		5B90D1B82A26526100E67F3B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B90D1B62A26526100E67F3B /* User.swift */; };
 		5B90D1BA2A26573100E67F3B /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B90D1B92A26573100E67F3B /* APIError.swift */; };
+		5BB062AA2A420C6200E7FE12 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB062A92A420C6200E7FE12 /* LoginViewModel.swift */; };
+		5BB062AC2A420D8200E7FE12 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB062AB2A420D8200E7FE12 /* LoginService.swift */; };
 		5BB57BF92A0AABEB004B278D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB57BF82A0AABEB004B278D /* ProfileViewModel.swift */; };
 		5BB57BFD2A0AAEE2004B278D /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB57BFC2A0AAEE2004B278D /* UIImageViewExtension.swift */; };
 		5BB57BFF2A0AB5A6004B278D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB57BFE2A0AB5A6004B278D /* UIViewExtension.swift */; };
@@ -73,6 +75,8 @@
 		5B90D1B52A26526100E67F3B /* LoginResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		5B90D1B62A26526100E67F3B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5B90D1B92A26573100E67F3B /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		5BB062A92A420C6200E7FE12 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		5BB062AB2A420D8200E7FE12 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		5BB57BF82A0AABEB004B278D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		5BB57BFC2A0AAEE2004B278D /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		5BB57BFE2A0AB5A6004B278D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -231,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				5BF2830A29FD8855009934C5 /* SplashService.swift */,
+				5BB062AB2A420D8200E7FE12 /* LoginService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 				5BB57BF82A0AABEB004B278D /* ProfileViewModel.swift */,
 				5BF2830C29FD8976009934C5 /* SplashViewModel.swift */,
 				5BC442AA2A1928A800BC679B /* FeedViewModel.swift */,
+				5BB062A92A420C6200E7FE12 /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -400,6 +406,7 @@
 				5BC0120A2A38C50700786B34 /* PostRequest.swift in Sources */,
 				5B90D1BA2A26573100E67F3B /* APIError.swift in Sources */,
 				5B4173E62A08123800597704 /* HomeController.swift in Sources */,
+				5BB062AA2A420C6200E7FE12 /* LoginViewModel.swift in Sources */,
 				5B90D1B72A26526100E67F3B /* LoginResponse.swift in Sources */,
 				5BF2830B29FD8855009934C5 /* SplashService.swift in Sources */,
 				5BF2830729FD8065009934C5 /* SplashModel.swift in Sources */,
@@ -417,6 +424,7 @@
 				5BF2830529FD7F41009934C5 /* MinigramApp.swift in Sources */,
 				5B2A9F1C29E1D73100A172E6 /* AppDelegate.swift in Sources */,
 				5B88E1F72A34E37900DC92B2 /* PageContentController.swift in Sources */,
+				5BB062AC2A420D8200E7FE12 /* LoginService.swift in Sources */,
 				5BC0120C2A38CE2500786B34 /* CreatePostResponse.swift in Sources */,
 				5B2A9F1E29E1D73100A172E6 /* SceneDelegate.swift in Sources */,
 				5BF2830D29FD8976009934C5 /* SplashViewModel.swift in Sources */,

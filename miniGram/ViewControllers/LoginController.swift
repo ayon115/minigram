@@ -17,6 +17,8 @@ class LoginController: UIViewController {
     @IBOutlet weak var saveSwitch: UISwitch!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    var loginViewModel: LoginViewModel = LoginViewModel()
+    
     let saveCredentials = "saveCredentials"
     
     override func viewDidLoad() {
@@ -43,29 +45,18 @@ class LoginController: UIViewController {
     }
     
     func validate () -> String {
-        guard let email = self.emailField.text, isValidEmail(email: email) else {
-            return "The email is invalid. Please enter a valid email."
+        guard let email = self.emailField.text, self.loginViewModel.isValidEmail(email: email) else {
+            return self.loginViewModel.emailInvalid
         }
         
         guard let password = self.passwordField.text, password.count >= 6 else {
-            return "Passowrd too short. The password must have at least 6 characters."
+            return self.loginViewModel.passwordInvalid
         }
         
         return ""
     }
     
-    func isValidEmail (email: String) -> Bool {
-        // write your email validation code, return true if valid
-        let emailRegEx = "[A-Z0-9a-z.-_]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}"
-        let regex = try! NSRegularExpression(pattern: emailRegEx)
-        let nsRange = NSRange(location: 0, length: email.count)
-        let results = regex.matches(in: email, range: nsRange)
-        if results.count == 0 {
-            return false
-        }
-        return  true
-    }
-    
+
 
     @IBAction func onClickLoginButton () {
         print("login button was clicked")
@@ -98,35 +89,16 @@ class LoginController: UIViewController {
     }
     
     func login (email: String, password: String) {
-        
-        let url = MinigramApp.apiBaseUrl + "/api/auth/local"
-        let loginRequest = LoginRequest(identifier: email, password: password)
-        let headers: HTTPHeaders = [:]
-        
+    
         self.activityIndicator.isHidden = false
         self.activityIndicator.startAnimating()
         
-        AF.request(url, method: .post, parameters: loginRequest, encoder: JSONParameterEncoder.default, headers: headers, interceptor: nil, requestModifier: nil).responseDecodable(of: LoginResponse.self) { response in
-            debugPrint(response)
-            
-            switch (response.result) {
-                case .success:
-                if let statusCode = response.response?.statusCode {
-                        if statusCode == 200 {
-                            self.saveAuthInfo(response: response.value)
-                            self.makeTransitionToHome()
-                        } else {
-                            if let errorMessage = response.value?.error?.message {
-                                MinigramApp.showAlert(from: self, title: "Login failed", message:  errorMessage + ". Please try again later.")
-                            } else {
-                                MinigramApp.showAlert(from: self, title: "Login failed", message: "Login failed. Please try again later.")
-                            }
-                        }
-                    }
-                    break
-                case let .failure(error):
-                    MinigramApp.showAlert(from: self, title: "Login failed", message: error.localizedDescription)
-                    break
+        self.loginViewModel.login(email: email, password: password) { loginResponse, error in
+            if let loginResponse = loginResponse {
+                self.saveAuthInfo(response: loginResponse)
+                self.makeTransitionToHome()
+            } else if let error = error {
+                MinigramApp.showAlert(from: self, title: "Login failed", message:  error.localizedDescription + ". Please try again later.")
             }
             self.activityIndicator.stopAnimating()
             self.activityIndicator.isHidden = true
