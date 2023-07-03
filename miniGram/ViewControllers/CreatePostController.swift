@@ -19,6 +19,8 @@ class CreatePostController: UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var mapHeightConstrant: NSLayoutConstraint!
+    
     var navBarTitle: String?
     var createPostDelegate: CreatePostProtocol?
     
@@ -70,6 +72,9 @@ class CreatePostController: UIViewController {
     func setup () {
         self.contentTextView.text = ""
         self.contentButton.addControlEvent(.touchUpInside) {
+            
+            // self.mapHeightConstrant.constant = 500
+            // self.view.setNeedsLayout()
             
             let controller = UIAlertController(title: "Pick Image", message: "Please choose an image", preferredStyle: .actionSheet)
             let cameraButton = UIAlertAction(title: "Use Camera", style: .default) { _ in
