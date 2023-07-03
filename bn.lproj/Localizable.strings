@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  miniGram
+
+  Created by Ashiq Uz Zoha on 3/7/23.
+  
+*/
+
+"email" = "আপনার ইমেইল";
+"password" = "আপনার পাসওয়ার্ড";
+"login_button" = "লগইন";
+"forgot_password" = "পাসওয়ার্ড ভুলে গিয়েছেন? রিসেট করুন।";
+"signup_button" = "নতুন একাউন্ট";

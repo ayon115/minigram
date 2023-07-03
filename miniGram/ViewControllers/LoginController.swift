@@ -17,6 +17,13 @@ class LoginController: UIViewController {
     @IBOutlet weak var saveSwitch: UISwitch!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var passwordLabel: UILabel!
+    
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var signupButton: UIButton!
+    @IBOutlet weak var forgotButton: UIButton!
+    
     var loginViewModel: LoginViewModel = LoginViewModel()
     
     let saveCredentials = "saveCredentials"
@@ -42,6 +49,12 @@ class LoginController: UIViewController {
             self.passwordField.text = password
         }
         
+        self.emailLabel.text = self.loginViewModel.email
+        self.passwordLabel.text = self.loginViewModel.password
+       
+        self.loginButton.setTitle(self.loginViewModel.login_button, for: .normal)
+        self.signupButton.setTitle(self.loginViewModel.signup_button, for: .normal)
+        self.forgotButton.setTitle(self.loginViewModel.forgot_password, for: .normal)
     }
     
     func validate () -> String {

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B0646472A489FB500D1A599 /* NoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0646462A489FB500D1A599 /* NoDataView.swift */; };
+		5B0646492A489FC500D1A599 /* NoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B0646482A489FC500D1A599 /* NoDataView.xib */; };
+		5B0646522A531CC000D1A599 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B0646542A531CC000D1A599 /* Localizable.strings */; };
 		5B2A9F1C29E1D73100A172E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2A9F1B29E1D73100A172E6 /* AppDelegate.swift */; };
 		5B2A9F1E29E1D73100A172E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2A9F1D29E1D73100A172E6 /* SceneDelegate.swift */; };
 		5B2A9F2029E1D73100A172E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2A9F1F29E1D73100A172E6 /* ViewController.swift */; };
@@ -53,6 +56,11 @@
 
 /* Begin PBXFileReference section */
 		311674EF98EE218028E33903 /* Pods-miniGram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-miniGram.release.xcconfig"; path = "Target Support Files/Pods-miniGram/Pods-miniGram.release.xcconfig"; sourceTree = "<group>"; };
+		5B0646462A489FB500D1A599 /* NoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataView.swift; sourceTree = "<group>"; };
+		5B0646482A489FC500D1A599 /* NoDataView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoDataView.xib; sourceTree = "<group>"; };
+		5B0646532A531CC000D1A599 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5B0646552A531DAD00D1A599 /* bn */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bn; path = bn.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5B0646562A531DBF00D1A599 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5B2A9F1829E1D73100A172E6 /* miniGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = miniGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B2A9F1B29E1D73100A172E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B2A9F1D29E1D73100A172E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,9 +129,19 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		5B0646452A489F9800D1A599 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				5B0646462A489FB500D1A599 /* NoDataView.swift */,
+				5B0646482A489FC500D1A599 /* NoDataView.xib */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
 		5B2A9F0F29E1D73000A172E6 = {
 			isa = PBXGroup;
 			children = (
+				5B0646542A531CC000D1A599 /* Localizable.strings */,
 				5B2A9F1A29E1D73100A172E6 /* miniGram */,
 				5B2A9F1929E1D73100A172E6 /* Products */,
 				1D38A98E43DF39F688AACCE1 /* Pods */,
@@ -142,6 +160,7 @@
 		5B2A9F1A29E1D73100A172E6 /* miniGram */ = {
 			isa = PBXGroup;
 			children = (
+				5B0646452A489F9800D1A599 /* CustomView */,
 				5BC0120D2A38D36D00786B34 /* Protocols */,
 				5BC442A32A1924B600BC679B /* CustomCells */,
 				5BB57BFA2A0AAEA1004B278D /* Extensions */,
@@ -320,6 +339,8 @@
 			knownRegions = (
 				en,
 				Base,
+				bn,
+				es,
 			);
 			mainGroup = 5B2A9F0F29E1D73000A172E6;
 			productRefGroup = 5B2A9F1929E1D73100A172E6 /* Products */;
@@ -339,6 +360,8 @@
 				5B2A9F2829E1D73100A172E6 /* LaunchScreen.storyboard in Resources */,
 				5BC442A52A1924DF00BC679B /* FeedCell.xib in Resources */,
 				5B8FD3E62A1D1A3400159F93 /* PostCell.xib in Resources */,
+				5B0646522A531CC000D1A599 /* Localizable.strings in Resources */,
+				5B0646492A489FC500D1A599 /* NoDataView.xib in Resources */,
 				5B2A9F2529E1D73100A172E6 /* Assets.xcassets in Resources */,
 				5B2A9F2329E1D73100A172E6 /* Main.storyboard in Resources */,
 			);
@@ -397,6 +420,7 @@
 				5BC442AB2A1928A800BC679B /* FeedViewModel.swift in Sources */,
 				5BB9B1162A226D470045D195 /* PostResponse.swift in Sources */,
 				5BB9B1142A226C650045D195 /* Post.swift in Sources */,
+				5B0646472A489FB500D1A599 /* NoDataView.swift in Sources */,
 				5B88E1F52A34DF9800DC92B2 /* SliderController.swift in Sources */,
 				5B5FC4282A0170FB00229274 /* ForgotController.swift in Sources */,
 				5BC012112A38D86300786B34 /* NotificationExtension.swift in Sources */,
@@ -435,6 +459,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		5B0646542A531CC000D1A599 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B0646532A531CC000D1A599 /* en */,
+				5B0646552A531DAD00D1A599 /* bn */,
+				5B0646562A531DBF00D1A599 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		5B2A9F2129E1D73100A172E6 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -458,6 +492,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -518,6 +553,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

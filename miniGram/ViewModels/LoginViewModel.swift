@@ -40,5 +40,24 @@ class LoginViewModel {
         }
 
     }
+    
+    var email: String {
+        return NSLocalizedString("email", comment: "")
+    }
+    
+    var password: String {
+        return NSLocalizedString("password", comment: "")
+    }
 
+    var login_button: String {
+        return NSLocalizedString("login_button", comment: "")
+    }
+    
+    var forgot_password: String {
+        return NSLocalizedString("forgot_password", comment: "")
+    }
+    
+    var signup_button: String {
+        return NSLocalizedString("signup_button", comment: "")
+    }
 }

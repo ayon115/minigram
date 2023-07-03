@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  miniGram
+
+  Created by Ashiq Uz Zoha on 3/7/23.
+  
+*/
+
+"email" = "Enter Email";
+"password" = "Enter Password";
+"login_button" = "Log In";
+"forgot_password" = "Forgot Password? Click to Reset";
+"signup_button" = "Create An Account";
